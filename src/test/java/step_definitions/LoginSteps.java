@@ -31,8 +31,6 @@ public class LoginSteps {
     //Pre Condition
     @Given("^a user is on the login page$")
     public void navigateToLoginPage() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
         ActOn.browser(driver).openBrowser(ReadConfigFiles.getPropertyValues("TestAppURL"));
         LOGGER.info("User is on the Login Page");
     }
@@ -70,13 +68,12 @@ public class LoginSteps {
     public void validateUserIsLoggedInSuccessfully() {
         AssertThat.elementAssertions(driver, Logout).elementIsDisplayed();
         LOGGER.info("User is in Home Page");
-        ActOn.browser(driver).closeBrowser();
+
     }
 
     @Then("^user is failed to login$")
     public void validateUserIsFailedToLogin() {
         AssertThat.elementAssertions(driver, InvalidPassword).elementIsDisplayed();
         LOGGER.info("User is still on the login page");
-        ActOn.browser(driver).closeBrowser();
     }
 }

@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/Features",
+        features = "src/test/resources/Features/mortgagecalculator.feature",
         glue = {"step_definitions"},
         plugin = {"pretty", "summary", "me.jvt.cucumber.report.PrettyReports:target/cucumber-html-reports"},
         snippets = CucumberOptions.SnippetType.CAMELCASE
